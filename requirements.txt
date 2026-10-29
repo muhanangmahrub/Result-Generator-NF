@@ -1,0 +1,20 @@
+# Core: parser Excel + dokumen Word
+openpyxl>=3.1
+python-docx>=1.1
+
+# GUI
+PySide6>=6.6
+qtawesome>=1.3
+
+# Screenshot & global hotkey
+mss>=9.0
+Pillow>=10.0
+pynput>=1.7
+
+# Export PDF lewat Microsoft Word (Windows). Opsional: tanpa ini export PDF
+# masih bisa memakai LibreOffice kalau terpasang.
+pywin32>=306; sys_platform == "win32"
+
+# Dev / build
+pytest>=8.0
+pyinstaller>=6.0

@@ -1,0 +1,32 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+build/
+dist/
+*.spec
+~$*.xlsx
+~$*.docx
+output/
+*.egg-info/
+
+# Generated output and user project folders
+output/
+*.docx
+*.xlsx
+screenshots/
+excel/
+backups/
+*- Result/
+
+# Real scenario / result documents (may be confidential); tests build their own fixtures
+/samples-private/
+
+# Build
+*.egg-info/
+
+# Editor / tooling
+.claude/
+.vscode/
+.idea/

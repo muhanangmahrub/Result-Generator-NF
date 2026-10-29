@@ -1,0 +1,50 @@
+name: Build and release
+
+on:
+  push:
+    tags: ["v*"]          # e.g. git tag v0.2.0 && git push origin v0.2.0
+  workflow_dispatch:       # manual run: builds the zip as a workflow artifact only
+
+permissions:
+  contents: write          # needed to attach the zip to a release
+
+jobs:
+  windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install dependencies
+        run: python -m pip install -r requirements.txt
+
+      - name: Check the tag matches the app version
+        if: startsWith(github.ref, 'refs/tags/v')
+        shell: pwsh
+        run: |
+          $version = (python -c "import rtg; print(rtg.__version__)").Trim()
+          $tag = "${{ github.ref_name }}".TrimStart("v")
+          if ($version -ne $tag) {
+            throw "Tag v$tag does not match rtg.__version__ ($version). Update rtg/__init__.py and pyproject.toml first."
+          }
+
+      - name: Build (tests, PyInstaller, smoke test, zip)
+        shell: pwsh
+        run: ./build.ps1
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ResultTestGenerator-win64
+          path: dist/ResultTestGenerator-*-win64.zip
+          if-no-files-found: error
+
+      - name: Publish release
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/ResultTestGenerator-*-win64.zip
+          generate_release_notes: true

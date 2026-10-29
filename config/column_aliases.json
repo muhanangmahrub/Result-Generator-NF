@@ -1,0 +1,225 @@
+{
+  "_comment": [
+    "Default header aliases for Result Test Generator.",
+    "Aliases are matched against NORMALISED header text: lowercase, punctuation",
+    "replaced by spaces, whitespace collapsed, runs of single letters glued",
+    "together. Example: 'Pass/Fail (P/F)' -> 'pass fail pf'.",
+    "Column position / letter is never used.",
+    "To customise, copy this file to <project>/config/column_aliases.json and",
+    "edit it; your entries are merged on top of these defaults."
+  ],
+
+  "header_scan_rows": 30,
+  "max_blank_rows": 10,
+  "metadata_scan_columns": 10,
+
+  "required_fields": ["test_case_id", "test_case", "test_step"],
+
+  "fill_down_groups": [
+    {
+      "key": "scenario_id",
+      "fields": ["scenario_id", "test_scenario", "test_scenario_description"]
+    },
+    {
+      "key": "test_case_id",
+      "fields": ["test_case_id", "test_case"]
+    }
+  ],
+
+  "aliases": {
+    "scenario_id": [
+      "scenario id",
+      "test scenario id",
+      "id scenario",
+      "sc id",
+      "scenario no"
+    ],
+    "test_scenario": [
+      "test scenario",
+      "scenario",
+      "scenario name",
+      "nama skenario",
+      "skenario"
+    ],
+    "test_scenario_description": [
+      "test scenario description",
+      "scenario description",
+      "deskripsi skenario",
+      "description"
+    ],
+    "test_case_id": [
+      "test case id",
+      "tc id",
+      "test case no",
+      "test case number",
+      "testcase id",
+      "id test case",
+      "case id",
+      "no test case"
+    ],
+    "test_case": [
+      "test case",
+      "test case name",
+      "test case description",
+      "test case title",
+      "nama test case",
+      "case name"
+    ],
+    "test_step_id": [
+      "test step id",
+      "step id",
+      "test step no",
+      "step no",
+      "no step"
+    ],
+    "test_step": [
+      "test step",
+      "test steps",
+      "step",
+      "steps",
+      "test step description",
+      "step description",
+      "langkah",
+      "langkah pengujian"
+    ],
+    "positive_negative": [
+      "positive negative",
+      "positive negative pn",
+      "pos neg",
+      "positive or negative",
+      "test type",
+      "tipe test"
+    ],
+    "pre_condition": [
+      "pre condition",
+      "precondition",
+      "pre conditions",
+      "pre requisite",
+      "prerequisite",
+      "prasyarat"
+    ],
+    "test_data": [
+      "test data",
+      "data test",
+      "input data",
+      "data"
+    ],
+    "expected_results": [
+      "expected results",
+      "expected result",
+      "expected",
+      "expected output",
+      "hasil yang diharapkan",
+      "hasil diharapkan"
+    ],
+    "actual_results": [
+      "actual results",
+      "actual result",
+      "actual",
+      "actual output",
+      "hasil aktual"
+    ],
+    "pass_fail": [
+      "pass fail",
+      "pass fail pf",
+      "passed failed",
+      "pf",
+      "status",
+      "result",
+      "hasil"
+    ],
+    "date_executed": [
+      "date executed",
+      "executed date",
+      "execution date",
+      "date of execution",
+      "tanggal eksekusi",
+      "date"
+    ],
+    "test_executed_by": [
+      "test executed by",
+      "test execute by",
+      "executed by",
+      "execute by",
+      "tester",
+      "pic"
+    ],
+    "notes": [
+      "notes",
+      "note",
+      "remark",
+      "remarks",
+      "catatan",
+      "keterangan"
+    ]
+  },
+
+  "metadata_aliases": {
+    "project_name": [
+      "project name",
+      "project",
+      "nama project",
+      "nama proyek",
+      "application name",
+      "nama aplikasi"
+    ],
+    "module_name": [
+      "module",
+      "module name",
+      "nama module",
+      "modul"
+    ],
+    "version": [
+      "version",
+      "versi",
+      "document version",
+      "app version",
+      "versi dokumen"
+    ],
+    "environment_testing": [
+      "environment testing",
+      "testing environment",
+      "test environment",
+      "environment",
+      "env",
+      "lingkungan testing"
+    ],
+    "type_testing": [
+      "type testing",
+      "testing type",
+      "type of testing",
+      "jenis testing",
+      "tipe testing"
+    ],
+    "document_title": [
+      "document title",
+      "document name",
+      "judul dokumen",
+      "title"
+    ],
+    "created_by": [
+      "created by",
+      "create by",
+      "dibuat oleh",
+      "author",
+      "prepared by"
+    ],
+    "created_date": [
+      "created date",
+      "create date",
+      "date created",
+      "creation date",
+      "tanggal dibuat"
+    ],
+    "reviewed_by": [
+      "reviewed by",
+      "review by",
+      "direview oleh"
+    ],
+    "approved_by": [
+      "approved by",
+      "approval by",
+      "disetujui oleh"
+    ]
+  }
+}
